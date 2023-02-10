@@ -1,29 +1,41 @@
-import React, { useState } from "react";
-import { SearchBar } from "@rneui/themed";
-import { View, Text, StyleSheet } from "react-native";
+import React from "react";
+import { StyleSheet, SafeAreaView, TextInput } from "react-native";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { handleSearchInput } from "../reducers/searchInputReducer";
 
-const SearchBarComponent = () => {
-  const [search, setSearch] = useState("");
+const SearchBar = () => {
+  const dispatch = useDispatch();
+  const searchInput = useSelector((state) => state.searchInput.searchInput);
 
-  const updateSearch = (search) => {
-    setSearch(search);
+  const handleSearch = (item) => {
+    dispatch(handleSearchInput(item));
   };
 
   return (
-    <View style={styles.view}>
-      <SearchBar
+    <SafeAreaView style={styles.input}>
+      <FontAwesomeIcon icon={faSearch} size={15} style={{ marginRight: 20 }} />
+      <TextInput
+        onChangeText={handleSearch}
+        value={searchInput}
         placeholder="Search"
-        onChangeText={updateSearch}
-        value={search}
+        inlineImageLeft={"search_icon"}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
+export default SearchBar;
+
 const styles = StyleSheet.create({
-  view: {
-    margin: 10,
+  input: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "white",
+    width: "85%",
+    borderRadius: 10,
+    height: 40,
+    padding: 10,
   },
 });
-
-export default SearchBarComponent;

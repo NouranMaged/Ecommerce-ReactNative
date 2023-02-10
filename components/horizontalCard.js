@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   View,
   StyleSheet,
   SafeAreaView,
   Image,
-  Button,
-  TouchableHighlight,
   TouchableOpacity,
 } from "react-native";
 import { Text } from "@rneui/themed";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { bestSellingData } from "../../apis/cardData";
+import { bestSellingData } from "../apis/cardData";
 
 const HorizontalCard = () => {
   const [itemIndex, setItemIndex] = useState(0);
@@ -65,21 +63,21 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "#fff",
     borderRadius: 15,
-    height: 100,
+    height: 120,
     marginTop: 15,
     alignContent: "center",
     flexDirection: "row",
   },
   cardImage: {
     borderRadius: 15,
-    height: 60,
-    width: 60,
+    height: 80,
+    width: 80,
     margin: 15,
   },
   itemName: {
-    marginTop: 10,
+    marginTop: 15,
     fontWeight: "bold",
-    fontSize: 15,
+    fontSize: 18,
     color: "black",
   },
   itemDescription: {

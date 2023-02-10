@@ -48,5 +48,6 @@ export const {
   removeFromCart,
   incrementQuantity,
   decreamentQuantity,
+  // handleSearchInput,
 } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -1,25 +1,9 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Linking,
-  StyleProp,
-  TextStyle,
-  ViewStyle,
-  StatusBar,
-} from "react-native";
+import { StyleSheet, View, StatusBar } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import {
-  faCartShopping,
-  faUser,
-  faArrowRight,
-  faPlus,
-  faHeart,
-  faBars,
-} from "@fortawesome/free-solid-svg-icons";
+import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
 
-const MainHeader = (props) => {
+const MainHeader = () => {
   return (
     <View style={styles.MainHeader}>
       <FontAwesomeIcon icon={faBars} size={20} />

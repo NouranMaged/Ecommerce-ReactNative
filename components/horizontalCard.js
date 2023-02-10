@@ -5,8 +5,8 @@ import {
   SafeAreaView,
   Image,
   TouchableOpacity,
+  Text,
 } from "react-native";
-import { Text } from "@rneui/themed";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { bestSellingData } from "../apis/cardData";

@@ -45,7 +45,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   subHeader: {
     width: "100%",
-    padding: 20,
+    padding: "5%",
     flexDirection: "row",
     justifyContent: "space-between",
     top: 100,

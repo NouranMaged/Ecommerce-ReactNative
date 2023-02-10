@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, View, StatusBar } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
+import { actualDimensions, responsiveHeight, responsiveWidth } from "../utils";
 
 const MainHeader = () => {
   return (
@@ -16,19 +17,19 @@ const MainHeader = () => {
 
 const styles = StyleSheet.create({
   MainHeader: {
-    width: "100%",
+    width: actualDimensions.width,
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: StatusBar.currentHeight,
-    padding: StatusBar.currentHeight,
+    padding: responsiveHeight(20),
     top: 0,
     position: "absolute",
     zIndex: 2000,
+    marginTop: responsiveHeight(30),
   },
 
   iconUser: {
-    height: 30,
-    width: 30,
+    height: responsiveHeight(30),
+    width: responsiveWidth(30),
     borderRadius: 6,
     backgroundColor: "black",
     justifyContent: "center",

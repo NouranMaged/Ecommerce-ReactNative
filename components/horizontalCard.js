@@ -10,6 +10,7 @@ import { Text } from "@rneui/themed";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { bestSellingData } from "../apis/cardData";
+import { responsiveHeight } from "../utils";
 
 const HorizontalCard = () => {
   const [itemIndex, setItemIndex] = useState(0);
@@ -63,19 +64,19 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "#fff",
     borderRadius: 15,
-    height: 120,
+    height: responsiveHeight(150),
     marginTop: 15,
     alignContent: "center",
     flexDirection: "row",
   },
   cardImage: {
     borderRadius: 15,
-    height: 80,
-    width: 80,
-    margin: 15,
+    height: responsiveHeight(100),
+    width: responsiveHeight(100),
+    margin: responsiveHeight(20),
   },
   itemName: {
-    marginTop: 15,
+    marginTop: responsiveHeight(20),
     fontWeight: "bold",
     fontSize: 18,
     color: "black",

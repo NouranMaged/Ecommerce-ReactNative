@@ -11,8 +11,9 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart } from "../../reducers/cartReducer";
+import { addToCart, removeFromCart } from "../reducers/cartReducer";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { responsiveHeight, responsiveWidth } from "../utils";
 
 const VerticalCard = (props) => {
   const dispatch = useDispatch();
@@ -81,20 +82,17 @@ const VerticalCard = (props) => {
 
 const styles = StyleSheet.create({
   card: {
-    width: 200,
+    width: responsiveWidth(250),
     backgroundColor: "#fff",
     borderRadius: 15,
-    padding: 10,
-    height: 250,
-    width: 200,
+    padding: responsiveWidth(10),
+    height: responsiveHeight(300),
     marginHorizontal: 10,
-    marginTop: 15,
-    marginBottom: 0,
+    marginTop: responsiveHeight(15),
   },
   cardImage: {
     borderRadius: 15,
-    height: 150,
-    marginBottom: -15,
+    height: responsiveHeight(180),
   },
   itemName: {
     fontWeight: "bold",
@@ -133,12 +131,12 @@ const styles = StyleSheet.create({
   heartIcon: {
     backgroundColor: "red",
     borderRadius: 50,
-    height: 25,
-    width: 25,
+    height: responsiveHeight(25),
+    width: responsiveWidth(25),
     justifyContent: "center",
     alignItems: "center",
-    top: -130,
-    left: 150,
+    bottom: responsiveHeight(170),
+    left: responsiveWidth(190),
     zIndex: 2000,
   },
 });

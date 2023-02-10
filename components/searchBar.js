@@ -15,7 +15,7 @@ const SearchBar = () => {
 
   return (
     <SafeAreaView style={styles.input}>
-      <FontAwesomeIcon icon={faSearch} size={15} style={{ marginRight: 20 }} />
+      <FontAwesomeIcon icon={faSearch} size={15} style={styles.icon} />
       <TextInput
         onChangeText={handleSearch}
         value={searchInput}
@@ -29,13 +29,13 @@ const SearchBar = () => {
 export default SearchBar;
 
 const styles = StyleSheet.create({
+  icon: { marginRight: "10%", left: "20%" },
   input: {
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "white",
-    width: "85%",
+    width: "80%",
     borderRadius: 10,
     height: 40,
-    padding: 10,
   },
 });

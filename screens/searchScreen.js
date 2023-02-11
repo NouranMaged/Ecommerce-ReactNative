@@ -8,7 +8,7 @@ const SearchScreen = () => {
   return (
     <>
       {/* EXPLORE ITEMS SECTION */}
-      <View style={styles.container}>
+      <View>
         {searchedData.length == 0 ? (
           <Text style={styles.noData}>No Data Found ! </Text>
         ) : (
@@ -29,11 +29,6 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 25,
-  },
-  container: {
-    flex: 1,
-    top: 180,
-    padding: 20,
   },
 });
 

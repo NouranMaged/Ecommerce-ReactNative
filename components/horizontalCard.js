@@ -2,28 +2,27 @@ import React, { useState } from "react";
 import {
   View,
   StyleSheet,
-  SafeAreaView,
   Image,
   TouchableOpacity,
   Text,
+  ScrollView,
 } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { bestSellingData } from "../apis/cardData";
 import { responsiveHeight } from "../utils";
 
-const HorizontalCard = () => {
+const HorizontalCard = (props) => {
   const [itemIndex, setItemIndex] = useState(0);
 
   const handleChangeItem = () => {
-    if (itemIndex == parseInt(bestSellingData.length - 1)) {
+    if (itemIndex == parseInt(props.data.length - 1)) {
       setItemIndex(0);
     } else {
       setItemIndex(parseInt(itemIndex) + 1);
     }
   };
   return (
-    <SafeAreaView>
+    <ScrollView>
       <View style={styles.card}>
         {/* CARD BODY  */}
         <View>
@@ -35,15 +34,13 @@ const HorizontalCard = () => {
           />
         </View>
         <View>
-          <Text style={styles.itemName}>
-            {bestSellingData[itemIndex].itemName}
-          </Text>
+          <Text style={styles.itemName}>{props.data[itemIndex].itemName}</Text>
           <Text style={styles.itemDescription}>
-            {bestSellingData[itemIndex].itemDescription}
+            {props.data[itemIndex].itemDescription}
           </Text>
 
           <Text style={styles.itemPrice}>
-            ${bestSellingData[itemIndex].itemPrice}
+            ${props.data[itemIndex].itemPrice}
           </Text>
         </View>
         <TouchableOpacity
@@ -55,7 +52,7 @@ const HorizontalCard = () => {
           </View>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 

@@ -1,18 +1,19 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, ScrollView } from "react-native";
 import VerticalCard from "../components/verticalCard";
-import { exploreData } from "../apis/cardData";
+import { bestSellingData, exploreData } from "../apis/cardData";
 import SearchBar from "../components/searchBar";
 import ShoppingCart from "../components/shoppingCart";
 import HorizontalCard from "../components/horizontalCard";
 import { useSelector } from "react-redux";
 import SearchScreen from "./searchScreen";
+import { responsiveHeight } from "../utils";
 
 const HomeScreen = () => {
   const searchInput = useSelector((state) => state.searchInput.searchInput);
 
   return (
-    <>
+    <ScrollView style={styles.homeScreen}>
       {/* SEARCH AND SHOPPING CART BAR */}
       <View style={styles.subHeader}>
         {/* SEARCH BAR */}
@@ -32,24 +33,20 @@ const HomeScreen = () => {
           {/* BEST SELLING SECTION */}
           <View style={styles.container}>
             <Text style={styles.title}>BestSelling</Text>
-            <HorizontalCard />
+            <HorizontalCard data={bestSellingData} />
           </View>
         </>
       ) : (
         <SearchScreen />
       )}
-    </>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   subHeader: {
-    width: "100%",
-    padding: "5%",
     flexDirection: "row",
     justifyContent: "space-between",
-    top: 100,
-    position: "absolute",
     alignItems: "center",
     zIndex: 2000,
   },
@@ -58,8 +55,11 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
   container: {
-    top: 170,
-    padding: 20,
+    marginTop: responsiveHeight(50),
+  },
+
+  homeScreen: {
+    backgroundColor: "aliceblue",
   },
 });
 

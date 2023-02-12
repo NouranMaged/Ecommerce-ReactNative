@@ -1,19 +1,31 @@
-import { StyleSheet } from "react-native";
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CartScreen from "./screens/cartScreen";
 import HomeScreen from "./screens/homeScreen";
+import MainHeader from "./components/mainHeader";
 
 const Stack = createNativeStackNavigator();
-const Navigation = () => {
+
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: "rgb(255, 45, 85)",
+    background: "aliceblue",
+  },
+};
+
+const Routes = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme}>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ headerShown: false }}
+          options={{
+            header: () => <MainHeader />,
+          }}
         />
         <Stack.Screen
           name="CartScreen"
@@ -25,6 +37,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
-
-const styles = StyleSheet.create({});
+export default Routes;

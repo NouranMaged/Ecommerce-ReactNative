@@ -6,12 +6,12 @@ import {
   TouchableOpacity,
   View,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { responsiveHeight, responsiveWidth } from "../utils";
 import { useNavigation } from "@react-navigation/native";
 import {
   decreamentQuantity,
@@ -31,68 +31,70 @@ const CartScreen = () => {
     }
   };
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.title}>Shopping Cart </Text>
-      <View>
-        {cartData?.length == 0 ? (
-          <View>
-            <Text style={styles.noData}>Shopping Cart in empty.</Text>
-            <Button
-              onPress={() => navigation.navigate("Home")}
-              title="Go to Home Page"
-            />
-          </View>
-        ) : (
-          <>
-            {cartData?.map((item, index) => {
-              return (
-                <View style={styles.card} key={index}>
-                  {/* CARD BODY  */}
-                  <View>
-                    <Image
-                      style={styles.cardImage}
-                      source={{
-                        uri: "https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg",
-                      }}
-                    />
-                  </View>
-                  <View>
-                    <Text style={styles.itemName}>{item.itemName}</Text>
-                    <Text style={styles.itemDescription}>
-                      {item.itemDescription}
-                    </Text>
-
-                    <Text style={styles.itemPrice}>${item.itemPrice}</Text>
-                  </View>
-
-                  <View style={styles.quantitySection}>
-                    <TouchableOpacity
-                      onPress={() => handleDecreament(item)}
-                      style={styles.minusIcon}
-                    >
-                      <View>
-                        <FontAwesomeIcon icon={faMinus} color="white" />
-                      </View>
-                    </TouchableOpacity>
-                    <View style={styles.quantityText}>
-                      <Text>{item.quantity}</Text>
+    <SafeAreaView>
+      <ScrollView style={styles.container}>
+        <Text style={styles.title}>Shopping Cart </Text>
+        <View>
+          {cartData?.length == 0 ? (
+            <View>
+              <Text style={styles.noData}>Shopping Cart in empty.</Text>
+              <Button
+                onPress={() => navigation.navigate("Home")}
+                title="Go to Home Page"
+              />
+            </View>
+          ) : (
+            <>
+              {cartData?.map((item, index) => {
+                return (
+                  <View style={styles.card} key={index}>
+                    {/* CARD BODY  */}
+                    <View>
+                      <Image
+                        style={styles.cardImage}
+                        source={{
+                          uri: "https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg",
+                        }}
+                      />
                     </View>
-                    <TouchableOpacity
-                      onPress={() => dispatch(incrementQuantity(item))}
-                      style={styles.plusIcon}
-                    >
-                      <View>
-                        <FontAwesomeIcon icon={faPlus} color="white" />
+                    <View>
+                      <Text style={styles.itemName}>{item.itemName}</Text>
+                      <Text style={styles.itemDescription}>
+                        {item.itemDescription}
+                      </Text>
+
+                      <Text style={styles.itemPrice}>${item.itemPrice}</Text>
+                    </View>
+
+                    <View style={styles.quantitySection}>
+                      <TouchableOpacity
+                        onPress={() => handleDecreament(item)}
+                        style={styles.minusIcon}
+                      >
+                        <View>
+                          <FontAwesomeIcon icon={faMinus} color="white" />
+                        </View>
+                      </TouchableOpacity>
+                      <View style={styles.quantityText}>
+                        <Text>{item.quantity}</Text>
                       </View>
-                    </TouchableOpacity>
+                      <TouchableOpacity
+                        onPress={() => dispatch(incrementQuantity(item))}
+                        style={styles.plusIcon}
+                      >
+                        <View>
+                          <FontAwesomeIcon icon={faPlus} color="white" />
+                        </View>
+                      </TouchableOpacity>
+                    </View>
                   </View>
-                </View>
-              );
-            })}
-          </>
-        )}
-      </View>
-    </ScrollView>
+                );
+              })}
+            </>
+          )}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -103,7 +105,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 25,
   },
-  container: { backgroundColor: "aliceblue" },
   noData: {
     fontWeight: "bold",
     fontSize: 25,
@@ -112,7 +113,7 @@ const styles = StyleSheet.create({
     margin: "10%",
   },
   quantitySection: {
-    width: responsiveWidth(140),
+    width: 140,
     flexDirection: "row",
     borderColor: "black",
     right: 0,
@@ -124,18 +125,18 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "#fff",
     borderRadius: 15,
-    height: responsiveHeight(150),
+    height: 150,
     marginTop: 15,
     flexDirection: "row",
   },
   cardImage: {
     borderRadius: 15,
-    height: responsiveHeight(100),
-    width: responsiveHeight(100),
-    margin: responsiveHeight(20),
+    height: 100,
+    width: 100,
+    margin: 20,
   },
   itemName: {
-    marginTop: responsiveHeight(20),
+    marginTop: 20,
     fontWeight: "bold",
     fontSize: 18,
     color: "black",
@@ -173,7 +174,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 5,
     height: 30,
-    width: responsiveWidth(60),
+    width: 60,
     justifyContent: "center",
     alignItems: "center",
     bottom: 0,

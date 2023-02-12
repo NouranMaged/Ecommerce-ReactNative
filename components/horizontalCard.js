@@ -6,10 +6,10 @@ import {
   TouchableOpacity,
   Text,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { responsiveHeight } from "../utils";
 
 const HorizontalCard = (props) => {
   const [itemIndex, setItemIndex] = useState(0);
@@ -22,37 +22,41 @@ const HorizontalCard = (props) => {
     }
   };
   return (
-    <ScrollView>
-      <View style={styles.card}>
-        {/* CARD BODY  */}
-        <View>
-          <Image
-            style={styles.cardImage}
-            source={{
-              uri: "https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg",
-            }}
-          />
-        </View>
-        <View>
-          <Text style={styles.itemName}>{props.data[itemIndex].itemName}</Text>
-          <Text style={styles.itemDescription}>
-            {props.data[itemIndex].itemDescription}
-          </Text>
-
-          <Text style={styles.itemPrice}>
-            ${props.data[itemIndex].itemPrice}
-          </Text>
-        </View>
-        <TouchableOpacity
-          onPress={() => handleChangeItem()}
-          style={styles.iconUser}
-        >
+    <SafeAreaView>
+      <ScrollView>
+        <View style={styles.card}>
+          {/* CARD BODY  */}
           <View>
-            <FontAwesomeIcon icon={faArrowRight} color="white" />
+            <Image
+              style={styles.cardImage}
+              source={{
+                uri: "https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg",
+              }}
+            />
           </View>
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+          <View>
+            <Text style={styles.itemName}>
+              {props.data[itemIndex].itemName}
+            </Text>
+            <Text style={styles.itemDescription}>
+              {props.data[itemIndex].itemDescription}
+            </Text>
+
+            <Text style={styles.itemPrice}>
+              ${props.data[itemIndex].itemPrice}
+            </Text>
+          </View>
+          <TouchableOpacity
+            onPress={() => handleChangeItem()}
+            style={styles.iconUser}
+          >
+            <View>
+              <FontAwesomeIcon icon={faArrowRight} color="white" />
+            </View>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -61,19 +65,19 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "#fff",
     borderRadius: 15,
-    height: responsiveHeight(150),
+    height: 150,
     marginTop: 15,
     alignContent: "center",
     flexDirection: "row",
   },
   cardImage: {
     borderRadius: 15,
-    height: responsiveHeight(100),
-    width: responsiveHeight(100),
-    margin: responsiveHeight(20),
+    height: 100,
+    width: 100,
+    margin: 20,
   },
   itemName: {
-    marginTop: responsiveHeight(20),
+    marginTop: 20,
     fontWeight: "bold",
     fontSize: 18,
     color: "black",

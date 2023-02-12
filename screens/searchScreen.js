@@ -6,17 +6,14 @@ import VerticalCard from "../components/verticalCard";
 const SearchScreen = () => {
   const searchedData = useSelector((state) => state.searchInput.searchedData);
   return (
-    <>
-      {/* EXPLORE ITEMS SECTION */}
-      <View>
-        {searchedData.length == 0 ? (
-          <Text style={styles.noData}>No Data Found ! </Text>
-        ) : (
-          <Text style={styles.title}>Search Result</Text>
-        )}
-        <VerticalCard data={searchedData} />
-      </View>
-    </>
+    <View style={{ color: "red" }}>
+      {searchedData.length == 0 ? (
+        <Text style={styles.noData}>No Data Found ! </Text>
+      ) : (
+        <Text style={styles.title}>Search Result</Text>
+      )}
+      <VerticalCard data={searchedData} />
+    </View>
   );
 };
 

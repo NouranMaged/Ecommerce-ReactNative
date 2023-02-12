@@ -13,7 +13,6 @@ import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart } from "../reducers/cartReducer";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { responsiveHeight, responsiveWidth } from "../utils";
 
 const VerticalCard = (props) => {
   const dispatch = useDispatch();
@@ -82,17 +81,18 @@ const VerticalCard = (props) => {
 
 const styles = StyleSheet.create({
   card: {
-    width: responsiveWidth(250),
+    width: 250,
+    padding: 10,
+    height: 300,
+    marginTop: 15,
     backgroundColor: "#fff",
     borderRadius: 15,
-    padding: responsiveWidth(10),
-    height: responsiveHeight(300),
     marginHorizontal: 10,
-    marginTop: responsiveHeight(15),
   },
   cardImage: {
     borderRadius: 15,
-    height: responsiveHeight(180),
+    height: 180,
+    //   height:  180),
   },
   itemName: {
     fontWeight: "bold",
@@ -131,12 +131,12 @@ const styles = StyleSheet.create({
   heartIcon: {
     backgroundColor: "red",
     borderRadius: 50,
-    height: responsiveHeight(25),
-    width: responsiveWidth(25),
+    height: 25,
+    width: 25,
+    bottom: 170,
+    left: 190,
     justifyContent: "center",
     alignItems: "center",
-    bottom: responsiveHeight(170),
-    left: responsiveWidth(190),
     zIndex: 2000,
   },
 });

@@ -1,7 +1,7 @@
 # Ecommerce-ReactNative
 Simple React Native App. supports listing, searching and adding/removing products from shopping cart using React-Redux
 
-## landing page divided into MainHeader, Sub Header including Search and Cart Icon
+# landing page divided into MainHeader, Sub Header including Search and Cart Icon
 horizontal scroll view for data
 
 
